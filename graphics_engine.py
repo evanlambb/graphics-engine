@@ -20,6 +20,7 @@ class Point:
 class Rectangle(Shape): 
     def __init__(self, x, y, width, height):
         # x and y are only used at the very beginning to initialize the starting positions
+        ## they are the top left corner...
         self.x = x
         self.y = y
         self.center = (x + width / 2, y + height / 2)
@@ -55,6 +56,8 @@ import math
 
 pygame.init()
 
+dragging = False
+
 #create the game window
 size_x = 800
 size_y = 600
@@ -81,6 +84,18 @@ while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
+
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                if not dragging:
+                    pygame.mouse.get_pos
+
+
+                dragging = True
+
+        elif event.type == pygame.MOUSEBUTTONUP:
+            if event.button == 1:
+                dragging = False
     pygame.display.update()
 
 pygame.quit()
